@@ -1,0 +1,94 @@
+@use "../abstracts/variables" as *;
+
+:root {
+  --main-clr: #82c639;
+  --delete: #eb6347;
+  --bg: #f0f4eb;
+}
+
+body {
+  background-color: var(--bg);
+  @include flex-center;
+  // align-items: flex-start;
+  min-height: 50vh;
+}
+.container {
+  text-align: center;
+  max-width: 450px;
+  .header {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+}
+.form {
+  padding: 20px;
+  background-color: white;
+  border-radius: 20px;
+  @include flex-between;
+  gap: 20px;
+  input {
+    flex-grow: 1;
+    padding: 10px;
+  }
+  button {
+    background-color: var(--main-clr);
+    color: white;
+    padding: 10px;
+  }
+}
+
+.tasks {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  .task {
+    text-align: left;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: $shadow-2;
+    @include flex-between;
+    input {
+      align-self: center;
+      accent-color: var(--main-clr);
+      display: block;
+      @include box(30px);
+      &:checked + label {
+        text-decoration: line-through;
+      }
+    }
+    label {
+      font-size: 20px;
+    }
+  }
+  .row {
+    @include flex-between;
+    gap: 20px;
+  }
+  .settings {
+    button {
+      @include box(40px);
+      @include flex-center;
+      border-radius: 8px;
+      display: block;
+      background-color: var(--main-clr);
+      color: white;
+      padding: 10px;
+      // @include flex
+    }
+  }
+}
+
+.wrapper {
+  inset: 0;
+  position: absolute;
+  @include box(100%);
+  background-color: rgba(black, 0.6);
+  @include flex-center;
+  z-index: 1;
+
+  input {
+    background-color: white;
+  }
+}
